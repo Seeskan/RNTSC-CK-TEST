@@ -1,19 +1,41 @@
 <!doctype html>
 <html lang="fr">
-  <body>
  
-<div style="background:red;color:white;text-align:center;padding:10px;font-weight:bold;">
-ENVIRONNEMENT TEST - DONNÉES NON OFFICIELLES
-</div>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RNTSC Cokerie V3 Firebase</title>
+ 
 <style>
 :root{--nav:#0b2742;--blue:#0b69b7;--bg:#f3f6f9;--line:#d9e2ec;--green:#247a42;--orange:#c86516;--red:#b42318;--text:#183153}*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}header{background:var(--nav);color:#fff;padding:14px 20px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}h1{font-size:21px;margin:0}header small{opacity:.8}.status{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13px}.dot{width:10px;height:10px;border-radius:50%;background:#aaa}.dot.ok{background:#44c767}.dot.ko{background:#ff6b6b}.nav{display:flex;background:#fff;border-bottom:1px solid var(--line);padding:0 14px;overflow:auto}.nav button{border:0;background:none;padding:13px 15px;font-weight:700;color:#52677d;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}.nav button.active{color:var(--blue);border-color:var(--blue)}main{max-width:1450px;margin:auto;padding:18px}.screen{display:none}.screen.active{display:block}.notice{background:#fff6d9;border-left:5px solid #e5a700;padding:12px;border-radius:8px;margin-bottom:15px}.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-bottom:15px}.card,.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 2px 8px #0b27420c}.kpi{padding:14px}.kpi b{font-size:28px;display:block;margin-top:5px}.card{padding:16px}.grid{display:grid;grid-template-columns:1.2fr 1fr;gap:15px}.zonegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.zone{padding:11px;border:2px solid #cbd5df;border-radius:9px;background:#f8fafc;cursor:pointer;min-height:95px}.zone.on{border-color:var(--green);background:#eef9f1}.zone.multi{border-color:var(--orange);background:#fff5e9}.zone h3{font-size:14px;margin:0 0 5px}.muted{font-size:12px;color:#65788d}.pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 7px;border-radius:99px;background:#e8eef5}.list{display:flex;flex-direction:column;gap:8px}.work{padding:10px;border-radius:8px;background:#f8fafc;border-left:5px solid var(--green)}.work.multi{border-color:var(--orange)}.work.blocked{border-color:var(--red)}.row{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.filters,.actions{display:flex;gap:8px;flex-wrap:wrap}.filters{margin-bottom:12px}input,select,textarea{width:100%;padding:9px;border:1px solid #b8c4d0;border-radius:7px;background:#fff;font:inherit}label{font-weight:700;font-size:13px;display:block;margin-bottom:5px}.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.full{grid-column:1/-1}.locationbox{background:#eef6fd;border:1px solid #a9cef0;border-radius:9px;padding:13px}.path{font-weight:700;color:#0b5796;margin-top:9px}.checks{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.check{display:flex;align-items:center;gap:6px;background:#f6f8fa;border-radius:7px;padding:7px;font-size:13px}.check input{width:auto}.btn{border:0;border-radius:7px;padding:9px 13px;font-weight:700;cursor:pointer}.btn:disabled{opacity:.55;cursor:not-allowed}.primary{background:var(--blue);color:white}.secondary{background:#e7edf4;color:#243b53}.danger{background:#fee4e2;color:#912018}.actions{justify-content:flex-end;margin-top:14px}table{width:100%;border-collapse:collapse}th,td{padding:9px;text-align:left;border-bottom:1px solid #e4e9ee;font-size:12px}th{background:#eef3f7}.modal{position:fixed;inset:0;background:#0008;display:none;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.modalbox{background:#fff;border-radius:12px;max-width:680px;width:100%;padding:18px;max-height:88vh;overflow:auto}.tree details{margin:5px 0;padding-left:8px}.tree summary{cursor:pointer;font-weight:700}.tree .leaf{padding:4px 0 4px 22px;font-size:13px}.alert{display:none;background:#fff2e2;border:1px solid #f2b36d;padding:10px;border-radius:8px;margin-top:8px}.alert.show{display:block}.msg{display:none;margin-top:12px;padding:10px;border-radius:8px;font-weight:700}.msg.ok{display:block;background:#e8f5e9;color:#1b5e20}.msg.ko{display:block;background:#ffebee;color:#b71c1c}@media(max-width:900px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.zonegrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){main{padding:10px}.formgrid,.checks{grid-template-columns:1fr}.full{grid-column:auto}.zonegrid{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}}
 </style>
 </head><body>
-<header><div><h1>RNTSC COKERIE VERSION TEST</h1><small>Registre numérique des travaux sans consignation · Base Firebase partagée</small></div><div><div class="status"><span id="dbDot" class="dot"></span><span id="dbStatus">Connexion…</span></div><div id="clock"></div></div></header>
+<header><div><h1>RNTSC COKERIE VERSION TEST</h1><small>Registre numérique des travaux sans consignation · Base Firebase partagée</small></div><div>
+<div class="status">
+<span id="dbDot" class="dot"></span>
+<span id="dbStatus">Connexion…</span>
+</div>
+ 
+<div id="clock"></div>
+ 
+<div id="authArea" style="margin-top:8px;text-align:right;">
+<span id="authStatus" style="font-size:12px;margin-right:8px;">
+Consultation seule
+</span>
+ 
+<button id="openLoginBtn" class="btn secondary" type="button">
+Se connecter
+</button>
+ 
+<button id="logoutBtn"
+class="btn secondary"
+type="button"
+style="display:none;">
+Se déconnecter
+</button>
+</div>
+</div>
+</header>
 <nav class="nav"><button class="active" data-s="dash">Tableau de bord</button><button data-s="new">Nouvelle déclaration</button><button data-s="history">Registre</button><button data-s="ref">Référentiel</button></nav>
 <main>
 <section id="dash" class="screen active"><div class="notice"><b>Attention :</b> outil de recensement et de coordination uniquement. Il ne remplace ni l’analyse de risques, ni le PPS/ICP, ni la décision sur la consignation. <b>Doute = STOP.</b><br><span class="muted">Les données sont centralisées dans Firebase. Une copie de secours locale est conservée dans ce navigateur.</span></div>
@@ -28,14 +50,243 @@ ENVIRONNEMENT TEST - DONNÉES NON OFFICIELLES
 <section id="history" class="screen"><div class="card"><h2>Registre</h2><div class="filters"><input id="histText" placeholder="Filtrer"><select id="histStatus"><option value="">Tous les statuts</option><option>Actif</option><option>Clôturé</option><option>Bloqué</option></select></div><div style="overflow:auto"><table><thead><tr><th>N°</th><th>Statut</th><th>Entreprise</th><th>Travaux</th><th>Localisation</th><th>Effectif</th><th>Début</th><th>Fin</th><th></th></tr></thead><tbody id="tbody"></tbody></table></div></div></section>
 <section id="ref" class="screen"><div class="card"><h2>Référentiel de localisation</h2><div id="tree" class="tree"></div></div></section>
 </main><div id="modal" class="modal"><div class="modalbox"><div id="modalContent"></div><div class="actions"><button id="modalClose" class="btn secondary">Fermer</button></div></div></div>
+<div id="loginModal" class="modal">
+<div class="modalbox" style="max-width:430px;">
+ 
+<h2>Connexion VIGIE-SC</h2>
+ 
+<p class="muted">
+La consultation est libre. Une connexion est obligatoire pour créer,
+modifier ou clôturer une déclaration.
+</p>
+ 
+<div style="margin-bottom:12px;">
+<label for="loginEmail">Adresse email</label>
+<input
+id="loginEmail"
+type="email"
+autocomplete="username"
+placeholder="Adresse email">
+</div>
+ 
+<div style="margin-bottom:12px;">
+<label for="loginPassword">Mot de passe</label>
+<input
+id="loginPassword"
+type="password"
+autocomplete="current-password"
+placeholder="Mot de passe">
+</div>
+ 
+<div id="loginMessage" class="msg" role="status"></div>
+ 
+<div class="actions">
+<button
+id="cancelLoginBtn"
+class="btn secondary"
+type="button">
+Annuler
+</button>
+ 
+<button
+id="loginBtn"
+class="btn primary"
+type="button">
+Se connecter
+</button>
+</div>
+ 
+</div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+ 
 <script>
-const DB='https://rntsc-ck-test-9b864-default-rtdb.europe-west1.firebasedatabase.app';
+const DB =
+'https://rntsc-ck-test-9b864-default-rtdb.europe-west1.firebasedatabase.app';
+ 
+const firebaseConfig = {
+apiKey: "AIzaSyDMICaHyA3b4Y5VslYUMcha_AUKb5W-iXY",
+authDomain: "rntsc-ck-test-9b864.firebaseapp.com",
+databaseURL: "https://rntsc-ck-test-9b864-default-rtdb.europe-west1.firebasedatabase.app",
+projectId: "rntsc-ck-test-9b864",
+storageBucket: "rntsc-ck-test-9b864.firebasestorage.app",
+messagingSenderId: "1072427288352",
+appId: "1:1072427288352:web:b06aa82417c66127053945"
+};
+ 
+firebase.initializeApp(firebaseConfig);
+ 
+const auth = firebase.auth();
+ 
+function isAuthenticated() {
+return Boolean(auth.currentUser);
+}
+ 
+function showLoginMessage(text, ok) {
+const message = document.getElementById('loginMessage');
+ 
+message.textContent = text;
+message.className = 'msg ' + (ok ? 'ok' : 'ko');
+}
+ 
+async function loginUser() {
+const email =
+document.getElementById('loginEmail').value.trim();
+ 
+const password =
+document.getElementById('loginPassword').value;
+ 
+const button =
+document.getElementById('loginBtn');
+ 
+if (!email || !password) {
+showLoginMessage(
+'Renseigne l’adresse email et le mot de passe.',
+false
+);
+ 
+return;
+}
+ 
+button.disabled = true;
+button.textContent = 'Connexion…';
+ 
+try {
+await auth.signInWithEmailAndPassword(email, password);
+ 
+document.getElementById('loginPassword').value = '';
+document.getElementById('loginModal').classList.remove('show');
+ 
+} catch (error) {
+console.error('Erreur Firebase Authentication', error);
+ 
+showLoginMessage(
+'Connexion impossible. Vérifie l’adresse email et le mot de passe.',
+false
+);
+ 
+} finally {
+button.disabled = false;
+button.textContent = 'Se connecter';
+}
+}
+ 
+async function logoutUser() {
+try {
+await auth.signOut();
+ 
+} catch (error) {
+console.error('Erreur de déconnexion', error);
+alert('Déconnexion impossible.');
+}
+}
+ 
+function updateAuthInterface(user) {
+const authenticated = Boolean(user);
+ 
+const authStatus =
+document.getElementById('authStatus');
+ 
+const openLoginBtn =
+document.getElementById('openLoginBtn');
+ 
+const logoutBtn =
+document.getElementById('logoutBtn');
+ 
+const saveBtn =
+document.getElementById('saveBtn');
+ 
+const newTab =
+document.querySelector('[data-s="new"]');
+ 
+if (authenticated) {
+authStatus.textContent =
+'Connecté : ' + user.email;
+ 
+openLoginBtn.style.display = 'none';
+logoutBtn.style.display = 'inline-block';
+ 
+newTab.disabled = false;
+newTab.title = '';
+ 
+saveBtn.disabled = false;
+saveBtn.title = '';
+ 
+} else {
+authStatus.textContent = 'Consultation seule';
+ 
+openLoginBtn.style.display = 'inline-block';
+logoutBtn.style.display = 'none';
+ 
+newTab.disabled = true;
+newTab.title =
+'Connexion obligatoire pour créer une déclaration';
+ 
+saveBtn.disabled = true;
+saveBtn.title =
+'Connexion obligatoire pour enregistrer';
+}
+ 
+if (typeof renderAll === 'function') {
+renderAll();
+}
+}
+ 
+auth.onAuthStateChanged(function(user) {
+updateAuthInterface(user);
+});
 const REF={"FOURS / MACHINES":[{"code":"FM01","name":"Batterie 1","children":[{"code":"FM01.01","name":"SSF B1"},{"code":"FM01.02","name":"7m CM"},{"code":"FM01.03","name":"7m CC"},{"code":"FM01.04","name":"18m CM"},{"code":"FM01.05","name":"18m CC"},{"code":"FM01.06","name":"21m"}]},{"code":"FM02","name":"Batterie 2","children":[{"code":"FM02.01","name":"SSF B2"},{"code":"FM02.02","name":"7m CM"},{"code":"FM02.03","name":"7m CC"},{"code":"FM02.04","name":"18m CM"},{"code":"FM02.05","name":"18m CC"},{"code":"FM02.06","name":"21m"}]},{"code":"FM03","name":"GC1"},{"code":"FM04","name":"GC2"},{"code":"FM05","name":"E4"},{"code":"FM06","name":"E5"},{"code":"FM07","name":"D1"},{"code":"FM08","name":"D2"},{"code":"FM09","name":"L1"},{"code":"FM10","name":"L2"},{"code":"FM11","name":"Garage GC1"},{"code":"FM12","name":"Garage GC2"},{"code":"FM13","name":"Garage E4"},{"code":"FM14","name":"Garage E5"},{"code":"FM15","name":"Garage D1"},{"code":"FM16","name":"Garage D2"},{"code":"FM17","name":"Garage L1"},{"code":"FM18","name":"Garage L2"},{"code":"FM19","name":"Machines"},{"code":"FM20","name":"Réseau HF"},{"code":"FM21","name":"Réseau FC"}],"MANUTENTION":[{"code":"MA01","name":"Fonction 1","children":[{"code":"MA01.01","name":"01CR1"},{"code":"MA01.02","name":"01CV11"},{"code":"MA01.03","name":"01DEF11"},{"code":"MA01.04","name":"01GOM11"},{"code":"MA01.05","name":"01CV12"},{"code":"MA01.06","name":"01CV14"},{"code":"MA01.07","name":"02CV1"},{"code":"MA01.08","name":"02CV2"},{"code":"MA01.09","name":"Bâtiment criblage"},{"code":"MA01.10","name":"33m Bâtiment Dosos"}]},{"code":"MA02","name":"Fonction 2","children":[{"code":"MA02.01","name":"3.5m Dosos"},{"code":"MA02.02","name":"0m Doso"},{"code":"MA02.03","name":"02CV51/52"},{"code":"MA02.04","name":"Sauterelle binaire"},{"code":"MA02.05","name":"Zone stock binaire"},{"code":"MA02.06","name":"03CV1/2"},{"code":"MA02.07","name":"Étage TRP 1/3/10"},{"code":"MA02.08","name":"Étage 03EX1/3/10"},{"code":"MA02.09","name":"Étage broyeur"},{"code":"MA02.10","name":"Étage 03CV11/13/14/20"},{"code":"MA02.11","name":"0m Broyage"},{"code":"MA02.12","name":"Zone recyclage déchets boues"},{"code":"MA02.13","name":"0m Tour d’angle"},{"code":"MA02.14","name":"Étage 04CV2"},{"code":"MA02.15","name":"Étage diviseur"},{"code":"MA02.16","name":"Étage tête 03CV22"},{"code":"MA02.17","name":"60m TAC"},{"code":"MA02.18","name":"56m TAC"}]},{"code":"MA03","name":"Fonction 3","children":[{"code":"MA03.01","name":"33m TAC"},{"code":"MA03.02","name":"27m TAC"},{"code":"MA03.03","name":"21m TAC1"},{"code":"MA03.04","name":"21m TAC2"}]},{"code":"MA04","name":"Fonction 4","children":[{"code":"MA04.01","name":"Avant crible","children":[{"code":"MA04.01.01","name":"Cave 11CV1"},{"code":"MA04.01.02","name":"Banquette QàC"},{"code":"MA04.01.03","name":"Zone QS"},{"code":"MA04.01.04","name":"Petite cave 11CV2"},{"code":"MA04.01.05","name":"11CV2"},{"code":"MA04.01.06","name":"Tour d’angle 12TR1"},{"code":"MA04.01.07","name":"12CV1"}]},{"code":"MA04.02","name":"Après crible","children":[{"code":"MA04.02.01","name":"33m criblage coke"},{"code":"MA04.02.02","name":"20m criblage coke"},{"code":"MA04.02.03","name":"16.5m criblage coke"},{"code":"MA04.02.04","name":"11.5m criblage coke"},{"code":"MA04.02.05","name":"6.5m criblage coke"},{"code":"MA04.02.06","name":"3.5m criblage coke"},{"code":"MA04.02.07","name":"0m criblage coke"},{"code":"MA04.02.08","name":"13CV1"},{"code":"MA04.02.09","name":"13CV21"},{"code":"MA04.02.10","name":"13CV2"},{"code":"MA04.02.11","name":"13CV22"},{"code":"MA04.02.12","name":"Chargement camion PTC"},{"code":"MA04.02.13","name":"Chargement camion GC"},{"code":"MA04.02.14","name":"2242"},{"code":"MA04.02.15","name":"2552"},{"code":"MA04.02.16","name":"Tête 2552 (Zone PDC)"}]},{"code":"MA04.03","name":"CD2"},{"code":"MA04.04","name":"Échantillonnage"}]},{"code":"MA05","name":"Fonction 5","children":[{"code":"MA05.01","name":"05CV11"},{"code":"MA05.02","name":"05CV12"},{"code":"MA05.03","name":"05CV13"},{"code":"MA05.04","name":"0m SKIP"},{"code":"MA05.05","name":"56m SKIP"}]},{"code":"MA06","name":"Dépoussiérage"}],"TRAITEMENT DU GAZ":[{"code":"TG01","name":"Décantation"},{"code":"TG02","name":"Condensation"},{"code":"TG03","name":"Dégoudronneurs"},{"code":"TG04","name":"Lavage"},{"code":"TG05","name":"Extracteur Gaz"},{"code":"TG06","name":"Stripping"},{"code":"TG07","name":"Four NH3"},{"code":"TG08","name":"Désulfuration"},{"code":"TG09","name":"Stockage"},{"code":"TG10","name":"Biologie"},{"code":"TG11","name":"Lagunes"},{"code":"TG12","name":"TAR"},{"code":"TG13","name":"Salle de controle"}],"COMMUNS":[{"code":"CS01","name":"DP21 Centralisation"},{"code":"CS02","name":"Réseau incendie"},{"code":"CS03","name":"Réseau air comprimé"},{"code":"CS04","name":"Réseau eau industrielle"},{"code":"CS05","name":"Voiries"},{"code":"CS06","name":"Bureaux"},{"code":"CS07","name":"Base vie LIZ"},{"code":"CS08","name":"Base vie SODI"},{"code":"CS09","name":"Magasin 16 et abords"},{"code":"CS10","name":"Poste électrique"},{"code":"CS11","name":"Vestiaires et DAV"}]};
 let W=[];const risks=['Travail en hauteur','Échafaudage','Nacelle','Levage / grue','Travaux à chaud','Circulation engins','Gaz / ATEX','Ouverture de plancher','Produits chimiques','Manutention','Espace confiné','Autre'];
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const fmt=v=>v?new Date(v).toLocaleString('fr-FR',{dateStyle:'short',timeStyle:'short'}):'';
 function setDbStatus(ok,text){$('#dbDot').className='dot '+(ok?'ok':'ko');$('#dbStatus').textContent=text}
 function cache(){try{localStorage.setItem('rntsc_v3_backup',JSON.stringify(W))}catch(e){}}
-async function api(path,options={}){const r=await fetch(`${DB}/${path}.json`,options);if(!r.ok)throw new Error(`Firebase ${r.status}`);return r.json()}
+async function api(path, options = {}) {
+ 
+const method =
+(options.method || 'GET').toUpperCase();
+ 
+const writeRequest =
+['POST', 'PUT', 'PATCH', 'DELETE']
+.includes(method);
+ 
+let url = `${DB}/${path}.json`;
+ 
+if (writeRequest) {
+ 
+const user = auth.currentUser;
+ 
+if (!user) {
+ 
+throw new Error(
+'Connexion obligatoire pour modifier les données.'
+);
+ 
+}
+ 
+const idToken =
+await user.getIdToken();
+ 
+url +=
+`?auth=${encodeURIComponent(idToken)}`;
+ 
+}
+ 
+const response =
+await fetch(url, options);
+ 
+if (!response.ok) {
+ 
+throw new Error(
+`Firebase ${response.status}`
+);
+ 
+}
+ 
+return response.json();
+ 
+}
+`
 async function loadFirebase(){setDbStatus(false,'Synchronisation…');try{const data=await api('works');W=data?Object.entries(data).map(([id,x])=>({...x,id:x.id||id})):[];cache();setDbStatus(true,`Firebase connecté · ${W.length} fiche(s)`);renderAll()}catch(e){try{W=JSON.parse(localStorage.getItem('rntsc_v3_backup')||'[]')}catch(_){W=[]}setDbStatus(false,'Firebase indisponible · copie locale');renderAll();console.error(e)}}
 async function putWork(o){await api(`works/${encodeURIComponent(o.id)}`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)})}
 async function patchWork(id,data){await api(`works/${encodeURIComponent(id)}`,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})}
@@ -55,7 +306,23 @@ async function closeWork(id){let x=W.find(w=>w.id===id);if(!x||!confirm(`Clôtur
 function showMsg(text,ok){let m=$('#saveMessage');m.textContent=text;m.className='msg '+(ok?'ok':'ko')}
 async function saveDeclaration(e){e.preventDefault();let form=$('#form');if(!form.checkValidity()){form.reportValidity();showMsg('Compléter les champs obligatoires.',false);return}let loc=selected();if(!loc){showMsg('La localisation doit être complète.',false);return}let btn=$('#saveBtn');btn.disabled=true;btn.textContent='Enregistrement…';try{let fd=new FormData(form),o=Object.fromEntries(fd.entries());Object.assign(o,loc);o.risks=fd.getAll('risks');o.id=(crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random().toString(16).slice(2));let now=new Date();o.number='TSC-'+now.getFullYear()+'-'+now.toISOString().replace(/\D/g,'').slice(4,14);o.status='Actif';o.created=now.toISOString();await putWork(o);W.push(o);cache();renderAll();showMsg(o.number+' enregistré dans Firebase.',true);form.reset();workshopChange()}catch(err){showMsg('Échec Firebase : '+err.message,false)}finally{btn.disabled=false;btn.textContent='Enregistrer dans Firebase'}}
 function init(){Object.keys(REF).forEach(a=>{$('#workshop').add(new Option(a,a));$('#filterWorkshop').add(new Option(a,a))});$('#workshop').insertBefore(new Option('Choisir un atelier',''),$('#workshop').firstChild);$('#workshop').value='';$('#zone').innerHTML='<option value="">Choisir un atelier d’abord</option>';$('#risks').innerHTML=risks.map(r=>`<label class="check"><input type="checkbox" name="risks" value="${esc(r)}">${esc(r)}</label>`).join('');let now=new Date(),end=new Date(now.getTime()+8*3600000),local=d=>new Date(d-d.getTimezoneOffset()*60000).toISOString().slice(0,16);$('input[name=start]').value=local(now);$('input[name=end]').value=local(end);renderTree();setInterval(()=>$('#clock').textContent=new Date().toLocaleString('fr-FR'),1000);loadFirebase()}
-$('#workshop').onchange=workshopChange;$('#zone').onchange=zoneChange;$('#level2').onchange=level2Change;$('#level3').onchange=updatePath;$('#filterWorkshop').onchange=renderAll;$('#filterText').oninput=renderAll;$('#histText').oninput=renderHistory;$('#histStatus').onchange=renderHistory;$('#modalClose').onclick=()=>$('#modal').classList.remove('show');$('#sync').onclick=loadFirebase;$('#form').addEventListener('submit',saveDeclaration);$$('.nav button').forEach(b=>b.onclick=()=>{$$('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');$$('.screen').forEach(x=>x.classList.remove('active'));$('#'+b.dataset.s).classList.add('active');renderAll()});
+$('#workshop').onchange=workshopChange;$('#zone').onchange=zoneChange;$('#level2').onchange=level2Change;$('#level3').onchange=updatePath;$('#filterWorkshop').onchange=renderAll;$('#filterText').oninput=renderAll;$('#histText').oninput=renderHistory;$('#histStatus').onchange=renderHistory;$('#modalClose').onclick=()=>$('#modal').classList.remove('show')$('#openLoginBtn').onclick = () => {
+ 
+$('#loginMessage').textContent = '';
+ 
+$('#loginModal').classList.add('show');
+ 
+};
+ 
+$('#cancelLoginBtn').onclick = () => {
+ 
+$('#loginModal').classList.remove('show');
+ 
+};
+ 
+$('#loginBtn').onclick = loginUser;
+ 
+$('#logoutBtn').onclick = logoutUser;$('#sync').onclick=loadFirebase;$('#form').addEventListener('submit',saveDeclaration);$$('.nav button').forEach(b=>b.onclick=()=>{$$('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');$$('.screen').forEach(x=>x.classList.remove('active'));$('#'+b.dataset.s).classList.add('active');renderAll()});
 $('#export').onclick=()=>{let h=['Numero','Statut','Entreprise','Responsable','Centralisateur','Donneur ordre','Travaux','Atelier','Zone principale','Code localisation','Localisation complète','Effectif','Debut','Fin','Risques','Reference','Commentaires'],d=[h,...W.map(x=>[x.number,x.status,x.company,x.manager,x.centralizer,x.requester,x.work,x.workshop,x.zoneName,x.locationCode,x.path,x.headcount,x.start,x.end,(x.risks||[]).join('|'),x.reference,x.notes])],csv=d.map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(';')).join('\n'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv'}));a.download='RNTSC_V3_export.csv';a.click();URL.revokeObjectURL(a.href)};
 init();
 </script></body></html>
